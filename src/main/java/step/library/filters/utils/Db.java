@@ -16,10 +16,9 @@ public class Db {
         try{
             return true;
         } catch (Exception ex){
+            connection = null;
+            config = null;
             return false;
         }
-        connection = null;
-        config = null;
-        return false;
     }
 }
