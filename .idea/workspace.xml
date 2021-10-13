@@ -10,19 +10,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1339bd10-1ca3-4b0c-ae3d-20d18f78227f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/ojdbc8.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/step/library/models/Book.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/WEB-INF/lib/json-20210307.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/WEB-INF/lib/ojdbc8.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_json_json_20210307.xml" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/step/library/filters/utils/BookOrm.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/install.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/static.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Library.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/step/library/filters/DbFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/step/library/filters/DbFilter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/step/library/filters/utils/Db.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/step/library/filters/utils/Db.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/step/library/filters/DbFilter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/step/library/filters/DbFilter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/step/library/filters/utils/Db.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/step/library/filters/utils/Db.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/step/library/models/Book.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/step/library/models/Book.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,8 +33,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Jsp File" />
+        <option value="jsf" />
         <option value="Class" />
+        <option value="Jsp File" />
       </list>
     </option>
   </component>
@@ -371,7 +369,7 @@
       <workItem from="1634019344593" duration="7829000" />
       <workItem from="1634059594774" duration="1266000" />
       <workItem from="1634060905845" duration="2957000" />
-      <workItem from="1634104248146" duration="7284000" />
+      <workItem from="1634104248146" duration="10118000" />
     </task>
     <servers />
   </component>

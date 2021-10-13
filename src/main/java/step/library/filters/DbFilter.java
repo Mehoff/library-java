@@ -45,8 +45,18 @@ public class DbFilter implements Filter{
                 if(!Db.setConnection(configData)){
                     // Отобразить статическую страницу
                     // throw new SQLException("Db connection error!");
+                    servletRequest
+                            .getRequestDispatcher("/static.jsp")
+                            .forward(servletRequest, servletResponse);
                 }
-                filterChain.doFilter(servletRequest, servletResponse);
+                if(Db.getBookOrm().isTableExists()){
+                    filterChain.doFilter(servletRequest, servletResponse);
+                    return;
+                } else{
+                    servletRequest
+                            .getRequestDispatcher("/static.jsp")
+                            .forward(servletRequest, servletResponse);
+                }
                 return;
             } catch (Exception ex){
                 System.out.print("Error:\n" + ex.getMessage());

@@ -11,6 +11,14 @@ public class Db {
     final private static String SUFFIX = "_11";
     private static JSONObject config;
     private static Connection connection;
+    private static BookOrm bookOrm;
+
+    public static BookOrm getBookOrm() {
+        if(bookOrm == null){
+            bookOrm = new BookOrm(connection, SUFFIX, config);
+        }
+        return bookOrm;
+    }
 
     public static Connection getConnection() {
         return connection;
