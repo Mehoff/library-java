@@ -1,7 +1,8 @@
 package step.library.filters;
 
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
+
+
+import org.json.JSONObject;
 
 import step.library.filters.utils.Db;
 
@@ -24,7 +25,6 @@ public class DbFilter implements Filter{
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
         servletRequest.setCharacterEncoding("UTF-8");
         servletResponse.setCharacterEncoding("UTF-8");
-        // Real file path - stores in Servlet Context
         String path =
                 servletRequest
                 .getServletContext().getRealPath("/WEB-INF/");
@@ -38,10 +38,10 @@ public class DbFilter implements Filter{
                 if(len != reader.read(buf)){
                     throw new IOException("File integrity check error");
                 }
-                JSONObject configData = (JSONObject)
-                        new JSONParser().parse(new String(buf));
+                JSONObject configData = new JSONObject(new String(buf));
                 if(!Db.setConnection(configData)){
-                    throw new SQLException("Db connection error!");
+                    // Отобразить статическую страницу
+                    // throw new SQLException("Db connection error!");
                 }
                 filterChain.doFilter(servletRequest, servletResponse);
                 return;
