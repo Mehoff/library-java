@@ -1,10 +1,9 @@
-package step.library.filters.utils;
+package step.library.utils;
 
 import org.json.JSONObject;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.Statement;
 
 public class Db {
 
@@ -76,34 +75,34 @@ public class Db {
         }
     }
 
-    public static void createAuthors() {
-        if( connection == null ) return ;
-        String query = null ;
-        try( Statement statement = connection.createStatement() ) {
-            query = "CREATE TABLE Authors" + SUFFIX +
-                    "(Id         RAW(16) DEFAULT SYS_GUID() PRIMARY KEY, " +
-                    " Name       NVARCHAR2(256) NOT NULL )";
-            statement.executeUpdate( query ) ;
-        } catch( Exception ex ) {
-            System.err.println(
-                    "createAuthors: " + ex.getMessage() + " " + query ) ;
-        }
-    }
+//    public static void createAuthors() {
+//        if( connection == null ) return ;
+//        String query = null ;
+//        try( Statement statement = connection.createStatement() ) {
+//            query = "CREATE TABLE Authors" + SUFFIX +
+//                    "(Id         RAW(16) DEFAULT SYS_GUID() PRIMARY KEY, " +
+//                    " Name       NVARCHAR2(256) NOT NULL )";
+//            statement.executeUpdate( query ) ;
+//        } catch( Exception ex ) {
+//            System.err.println(
+//                    "createAuthors: " + ex.getMessage() + " " + query ) ;
+//        }
+//    }
 
-    public static void createBooks() {
-        if( connection == null ) return ;
-        String query = null ;
-        try( Statement statement = connection.createStatement() ) {
-            query = "CREATE TABLE Books" + SUFFIX +
-                    "(Id          RAW(16) DEFAULT SYS_GUID() PRIMARY KEY, " +
-                    " Title       NVARCHAR2(256) NOT NULL, " +
-                    " Description NVARCHAR2(512) NULL, " +
-                    " CONSTRAINT fk_Author FOREIGN KEY (Id) REFERENCES Authors" + SUFFIX + "(Id))";
-            statement.executeUpdate( query ) ;
-        } catch( Exception ex ) {
-            System.err.println(
-                    "createBooks: " + ex.getMessage() + " " + query ) ;
-        }
-    }
+//    public static void createBooks() {
+//        if( connection == null ) return ;
+//        String query = null ;
+//        try( Statement statement = connection.createStatement() ) {
+//            query = "CREATE TABLE Books" + SUFFIX +
+//                    "(Id          RAW(16) DEFAULT SYS_GUID() PRIMARY KEY, " +
+//                    " Title       NVARCHAR2(256) NOT NULL, " +
+//                    " Author NVARCHAR2(256) NULL, " +
+//                    " CONSTRAINT fk_Author FOREIGN KEY (Id) REFERENCES Authors" + SUFFIX + "(Id))";
+//            statement.executeUpdate( query ) ;
+//        } catch( Exception ex ) {
+//            System.err.println(
+//                    "createBooks: " + ex.getMessage() + " " + query ) ;
+//        }
+//    }
 
 }

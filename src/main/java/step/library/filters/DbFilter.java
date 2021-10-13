@@ -1,18 +1,15 @@
 package step.library.filters;
-
-
-
 import org.json.JSONObject;
 
-import step.library.filters.utils.Db;
+import step.library.utils.Db;
 
 import javax.servlet.*;
 import javax.servlet.annotation.WebFilter;
+import javax.servlet.http.HttpServletRequest;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.sql.SQLException;
 
 @WebFilter("/*")
 public class DbFilter implements Filter{
@@ -23,10 +20,17 @@ public class DbFilter implements Filter{
     }
 
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
+        System.out.println("DO FILTER");
         servletRequest.setCharacterEncoding("UTF-8");
         servletResponse.setCharacterEncoding("UTF-8");
 
-        System.out.println("DO FILTER");
+        String req = ((HttpServletRequest) servletRequest).getRequestURI();
+
+        for(String ext : new String[]{".css", ".js", ".jsp"})
+        if(req.endsWith(ext)){
+            filterChain.doFilter(servletRequest, servletResponse);
+            return;
+        }
 
         String path =
                 servletRequest
@@ -43,18 +47,18 @@ public class DbFilter implements Filter{
                 }
                 JSONObject configData = new JSONObject(new String(buf));
                 if(!Db.setConnection(configData)){
-                    // Отобразить статическую страницу
-                    // throw new SQLException("Db connection error!");
                     servletRequest
                             .getRequestDispatcher("/static.jsp")
                             .forward(servletRequest, servletResponse);
+                    return;
                 }
-                if(Db.getBookOrm().isTableExists()){
+                if(Db.getBookOrm().isTableExists("BOOKS")){
+                    System.out.println("Books exists");
                     filterChain.doFilter(servletRequest, servletResponse);
                     return;
-                } else{
+                } else {
                     servletRequest
-                            .getRequestDispatcher("/static.jsp")
+                            .getRequestDispatcher("/install.jsp")
                             .forward(servletRequest, servletResponse);
                 }
                 return;

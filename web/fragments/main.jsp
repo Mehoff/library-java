@@ -1,4 +1,8 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<main>
-    Hello from main
-</main>
+<div>
+    <ul>
+        <li>
+            <a href="books-servlet">Добавить книгу</a>
+        </li>
+    </ul>
+</div>

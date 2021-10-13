@@ -1,4 +1,4 @@
-<%@ page import="step.library.filters.utils.Db" %>
+<%@ page import="step.library.utils.Db" %>
 <%@ page contentType="text/html;charset=UTF-8"%>
 <html>
   <head>
@@ -6,13 +6,17 @@
     <link rel="stylesheet" href="css/styles.css"/>
   </head>
   <body>
+
   <jsp:include page="fragments/header.jsp"/>
-  <jsp:include page="fragments/main.jsp"/>
+  <main>
+
+    <jsp:include page="fragments/main.jsp"/>
+  </main>
+
   <jsp:include page="fragments/footer.jsp"/>
 
 
-<%--  <% Db.createAuthors(); %>--%>
-
+  <%--  <% Db.createAuthors(); %>--%>
 <%--  <% Db.createBooks(); %>--%>
 
   </body>
