@@ -10,20 +10,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1339bd10-1ca3-4b0c-ae3d-20d18f78227f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_googlecode_json_simple_json_simple_1_1_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__junit_junit_4_10.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_hamcrest_hamcrest_core_1_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/json_simple_1_1_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/json_simple_1_1_1__2_.xml" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/ojdbc8.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/step/library/models/Book.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/WEB-INF/lib/json-20210307.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/WEB-INF/lib/ojdbc8.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_json_json_20210307.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Library.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/json-simple-1.1.1.jar" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/step/library/filters/DbFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/step/library/filters/DbFilter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/step/library/filters/utils/Db.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/step/library/filters/utils/Db.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/step/library/filters/DbFilter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/step/library/filters/DbFilter.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/step/library/filters/utils/Db.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/step/library/filters/utils/Db.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/lib/json-simple-1.1.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/index.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -191,6 +190,9 @@
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Mihokw39\Desktop\Library\web\WEB-INF\configs" />
     </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="openRunningConfigInTab" value="true" />
   </component>
   <component name="RunManager">
     <configuration name="Tomcat 8.5.72" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 8.5.72" ALTERNATIVE_JRE_ENABLED="true" ALTERNATIVE_JRE_PATH="1.8.0_161">
@@ -369,7 +371,7 @@
       <workItem from="1634019344593" duration="7829000" />
       <workItem from="1634059594774" duration="1266000" />
       <workItem from="1634060905845" duration="2957000" />
-      <workItem from="1634104248146" duration="2527000" />
+      <workItem from="1634104248146" duration="7284000" />
     </task>
     <servers />
   </component>
