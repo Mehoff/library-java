@@ -4,6 +4,7 @@ import org.json.JSONObject;
 import step.library.models.Book;
 
 import java.sql.*;
+import java.util.Iterator;
 
 public class BookOrm {
 
@@ -35,6 +36,30 @@ public class BookOrm {
         }
 
         return false;
+    }
+
+    public Book getBookById(String id){
+        String query = "SELECT * FROM BOOKS" + SUFFIX + " WHERE id = '" + id + "'";
+
+        try(Statement statement = connection.createStatement()){
+            ResultSet set = statement.executeQuery(query);
+            set.next();
+
+            Book book = new Book(
+                    set.getString(1),
+                    set.getString(2),
+                    set.getString(3),
+                    set.getString(4),
+                    set.getString(5)
+            );
+
+            return book;
+
+        } catch (SQLException ex){
+            System.err.println(
+                    "BookOrm.getList: " + ex.getMessage() + "\n" + query ) ;
+        }
+        return null;
     }
 
     public Book[] getList() {
@@ -133,5 +158,62 @@ public class BookOrm {
                     "pushToDb: " + ex.getMessage() + " " + query ) ;
             return false;
         }
+    }
+
+    public boolean edit(JSONObject json){
+        System.out.println("edit");
+        if(connection == null) return false;
+
+        String query = "UPDATE FROM BOOKS" + SUFFIX +
+                "SET ";
+
+
+        Iterator<String> keys = json.keys();
+
+        boolean firstIteration = true;
+
+        while(keys.hasNext()){
+
+            if(!firstIteration){
+                query += ", ";
+                firstIteration = !firstIteration;
+            }
+
+            String key = keys.next();
+
+            if(json.get(key) instanceof JSONObject){
+                String value = ((JSONObject) json.get(key)).toString();
+                query += key + "=" + value;
+            }
+        }
+
+        query += " WHERE id = " + json.getString("id");
+
+        // First of all - check how it works before using db for this
+
+        System.out.println("BookOrm:edit(JSONObject)");
+        System.out.println(query);
+        return false;
+
+//        try(Statement statement = connection.createStatement()){
+//            statement.executeUpdate(query);
+//            return true;
+//        } catch (SQLException ex){
+//            System.err.println(
+//                    "BookOrm:edit: " + ex.getMessage() + " " + query ) ;
+//            return false;
+//        }
+
+
+
+//        try(PreparedStatement prep = connection.prepareStatement(query)) {
+//            prep.setString(1, id);
+//            prep.executeUpdate();
+//            return true;
+//        } catch (SQLException ex){
+//            System.err.println(
+//                    "pushToDb: " + ex.getMessage() + " " + query ) ;
+//            return false;
+//        }
     }
 }

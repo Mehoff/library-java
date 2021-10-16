@@ -9,10 +9,7 @@ import step.library.utils.Db;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.Part;
+import javax.servlet.http.*;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
@@ -26,7 +23,6 @@ public class BooksServlet extends HttpServlet {
     // added last \\
     final String devFolder = "E:\\Code\\Repositories\\LibraryWeb\\web\\uploads\\";
 
-    // fetch data from front-end end send data to db
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
@@ -40,40 +36,6 @@ public class BooksServlet extends HttpServlet {
             return;
         }
         resp.sendRedirect(req.getRequestURI());
-    }
-
-    private boolean addBook(String author, String title, String description, Part cover){
-        if( author == null || author.length() < 2 ) {
-            System.out.println("VALIDATION DATA ERROR: Author");
-            return false;
-        } else if( title == null || title.length() < 2 ) {
-            System.out.println("VALIDATION DATA ERROR: title");
-            return false;
-        } else if( cover.getSize() == 0 ) {
-            System.out.println("VALIDATION DATA ERROR: cover");
-            return false;
-        } else if(description == null || description.length() < 2){
-            System.out.println("VALIDATION DATA ERROR: description");
-            return false;
-        } else {
-            String savedName = moveUploadedFile( cover, true ) ;
-            if( savedName == null ) {
-                System.out.println("VALIDATION DATA ERROR: Cover");
-                return false;
-            } else {
-                if( Db.getBookOrm().pushToDb( new Book(
-                        author,
-                        title,
-                        description,
-                        savedName
-                ) ) ) {
-                    return true;
-                } else {
-                    System.out.println("SAVING BOOK ERROR");
-                    return false;
-                }
-            }
-        }
     }
 
     @Override
@@ -118,16 +80,72 @@ public class BooksServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-//        resp.setContentType("application/json");
-//        resp.getWriter().print(
-//            new JSONArray(
-//                    Db.getBookOrm().getList()
-//            ).toString()
-//        );
-
         req
                 .getRequestDispatcher("addBook.jsp")
                 .forward(req, resp);
+    }
+
+    @Override
+    protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        System.out.println("BooksServlet:doPut");
+        try{
+            StringBuilder buffer = new StringBuilder();
+            BufferedReader reader = req.getReader();
+            String line;
+            while ((line = reader.readLine()) != null) {
+                buffer.append(line);
+                buffer.append(System.lineSeparator());
+            }
+            JSONObject json = new JSONObject(buffer.toString());
+
+            if(!Db.getBookOrm().edit(json)){
+
+                resp.setStatus(403);
+                resp.getWriter().println("Failed to edit");
+                return;
+            }
+
+            resp.setStatus(200);
+            resp.sendRedirect("index.jsp");
+
+        } catch (Exception ex){
+            resp.sendError(403, "Failed to delete");
+            return;
+        }
+    }
+
+    private boolean addBook(String author, String title, String description, Part cover){
+        if( author == null || author.length() < 2 ) {
+            System.out.println("VALIDATION DATA ERROR: Author");
+            return false;
+        } else if( title == null || title.length() < 2 ) {
+            System.out.println("VALIDATION DATA ERROR: title");
+            return false;
+        } else if( cover.getSize() == 0 ) {
+            System.out.println("VALIDATION DATA ERROR: cover");
+            return false;
+        } else if(description == null || description.length() < 2){
+            System.out.println("VALIDATION DATA ERROR: description");
+            return false;
+        } else {
+            String savedName = moveUploadedFile( cover, true ) ;
+            if( savedName == null ) {
+                System.out.println("VALIDATION DATA ERROR: Cover");
+                return false;
+            } else {
+                if( Db.getBookOrm().pushToDb( new Book(
+                        author,
+                        title,
+                        description,
+                        savedName
+                ) ) ) {
+                    return true;
+                } else {
+                    System.out.println("SAVING BOOK ERROR");
+                    return false;
+                }
+            }
+        }
     }
 
     private String moveUploadedFile( Part filePart, boolean makeDevCopy ) {

@@ -53,7 +53,6 @@ public class DbFilter implements Filter{
                     return;
                 }
                 if(Db.getBookOrm().isTableExists("BOOKS")){
-                    System.out.println("Books exists");
                     filterChain.doFilter(servletRequest, servletResponse);
                     return;
                 } else {

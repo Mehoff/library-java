@@ -19,25 +19,3 @@
     <br/>
     <input type="submit" value="Send"/> <br/>
 </form>
-
-<%--<script>--%>
-<%--    async function addBook(author, title, description, cover){--%>
-<%--        const book = {--%>
-<%--            author,--%>
-<%--            title,--%>
-<%--            description,--%>
-<%--            cover--%>
-<%--        }--%>
-
-<%--        await fetch('http://localhost:8081/Library_war_exploded/books-servlet', {--%>
-<%--            method: 'POST',--%>
-<%--            body: book--%>
-<%--        });--%>
-
-<%--    }--%>
-
-<%--    const add = document.querySelector("#addToDb");--%>
-<%--    add.addEventListener('click', (e) => {--%>
-<%--        const author = document.querySelector()--%>
-<%--    })--%>
-<%--</script>--%>

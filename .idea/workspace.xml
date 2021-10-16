@@ -10,18 +10,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1339bd10-1ca3-4b0c-ae3d-20d18f78227f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/step/library/BooksAPI.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/editBook.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/step/library/BooksServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/step/library/BooksServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/step/library/filters/DbFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/step/library/filters/DbFilter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/step/library/utils/BookOrm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/step/library/utils/BookOrm.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/step/library/utils/Db.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/step/library/utils/Db.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/step/library/BooksServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/step/library/BooksServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/step/library/filters/DbFilter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/step/library/filters/DbFilter.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/step/library/utils/BookOrm.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/step/library/utils/BookOrm.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/step/library/utils/Db.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/step/library/utils/Db.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/addBook.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/addBook.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/books.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/books.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/web/css/styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/fragments/main.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/fragments/main.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/fragments/newBookForm.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/fragments/newBookForm.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -373,7 +374,8 @@
       <workItem from="1634060905845" duration="2957000" />
       <workItem from="1634104248146" duration="24721000" />
       <workItem from="1634279648745" duration="1873000" />
-      <workItem from="1634370737641" duration="14460000" />
+      <workItem from="1634370737641" duration="14594000" />
+      <workItem from="1634410177307" duration="8704000" />
     </task>
     <servers />
   </component>

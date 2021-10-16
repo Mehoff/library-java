@@ -52,7 +52,11 @@
 <script>
     for(const button of document.querySelectorAll(".book-edit")){
         button.addEventListener('click', (event) => {
-            console.log(event.target.id)
+            if(!event.target.id)
+                return;
+
+            localStorage.setItem('editId', event.target.id);
+            window.location = 'editBook.jsp';
         })
     }
 
@@ -70,10 +74,6 @@
                     })
                     .then(res => res.json())
                     .then(json => {
-
-                        console.log("Returned:", json.status);
-                        console.log("Returned:", json.status[0]);
-
                         if(json.status[0] === 'OK'){
                             setTimeout(() => {
                                 window.location.href = window.location.pathname
