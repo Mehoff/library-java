@@ -37,23 +37,43 @@ public class BookOrm {
         return false;
     }
 
-//
-//    public static boolean addPicture( Picture pic ) {
-//        if( connection == null ) return false ;
-//        String query = "INSERT INTO Pictures" + SUFFIX +
-//                "(Name, Description) VALUES(?, ?)" ;
-//        try( PreparedStatement statement =
-//                     connection.prepareStatement( query ) ) {
-//            statement.setString( 1, pic.getName() ) ;
-//            statement.setString( 2, pic.getDescription() ) ;
-//            statement.executeUpdate() ;
-//            return true ;
-//        } catch( SQLException ex ) {
-//            System.err.println(
-//                    "addPicture: " + ex.getMessage() + " " + query ) ;
-//            return false ;
-//        }
-//    }
+    public Book[] getList() {
+        if( connection == null ) return null ;
+        String query, queryCount ;
+        String dbms = config.getString( "dbms" ) ;
+        if( dbms.equalsIgnoreCase( "Oracle")
+                || dbms.equalsIgnoreCase( "MySQL" ) )
+        {
+            queryCount = "SELECT COUNT(*) FROM BOOKS" + SUFFIX;
+            query = "SELECT B.ID, B.AUTHOR, B.TITLE, B.DESCRIPTION, B.COVER FROM BOOKS" + SUFFIX + " B";
+        } else {
+            return null ;
+        }
+        try( Statement statement = connection.createStatement() ) {
+            ResultSet res = statement.executeQuery( queryCount ) ;
+            res.next();
+            int cnt = res.getInt( 1 ) ;
+            res.close() ;
+            res = statement.executeQuery( query ) ;
+            Book[] ret = new Book[ cnt ] ;
+            for( int i = 0; i < cnt; i++ ) {
+                res.next() ;
+                ret[ i ] = new Book(
+                        res.getString( 1 ),
+                        res.getString( 2 ),
+                        res.getString( 3 ),
+                        res.getString( 4 ),
+                        res.getString( 5 )
+                ) ;
+            }
+            //System.out.print(ret);
+            return ret ;
+        } catch( SQLException ex ) {
+            System.err.println(
+                    "BookOrm.getList: " + ex.getMessage() + "\n" + query ) ;
+        }
+        return null ;
+    }
 
     public boolean pushToDb(Book book){
         if(connection == null) return false;
@@ -97,9 +117,4 @@ public class BookOrm {
         }
         return false ;
     }
-
-//    public boolean addBook(JSONObject object){
-//
-//    }
-
 }

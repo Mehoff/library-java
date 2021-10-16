@@ -10,26 +10,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1339bd10-1ca3-4b0c-ae3d-20d18f78227f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/step/library/BooksServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/step/library/models/Author.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/step/library/utils/BookOrm.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/addBook.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/fragments/newBookForm.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/step/library/BooksListServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/books.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/uploads/text.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Library.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/step/library/BooksServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/step/library/BooksServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/step/library/filters/DbFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/step/library/filters/DbFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/step/library/filters/utils/BookOrm.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/step/library/filters/utils/Db.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/step/library/utils/Db.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/step/library/models/Book.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/step/library/models/Book.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/step/library/utils/BookOrm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/step/library/utils/BookOrm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/step/library/utils/Db.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/step/library/utils/Db.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/step/library/BooksServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/step/library/BooksServlet.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/step/library/filters/DbFilter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/step/library/filters/DbFilter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/step/library/filters/utils/Db.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/step/library/models/Book.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/step/library/models/Book.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/web.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/web/css/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/step/library/utils/BookOrm.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/step/library/utils/BookOrm.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/step/library/utils/Db.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/step/library/utils/Db.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/fragments/main.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/fragments/main.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/install.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/install.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/fragments/newBookForm.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/fragments/newBookForm.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,8 +39,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="jsf" />
-        <option value="Class" />
         <option value="Jsp File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -379,7 +374,9 @@
       <workItem from="1634019344593" duration="7829000" />
       <workItem from="1634059594774" duration="1266000" />
       <workItem from="1634060905845" duration="2957000" />
-      <workItem from="1634104248146" duration="24616000" />
+      <workItem from="1634104248146" duration="24721000" />
+      <workItem from="1634279648745" duration="1873000" />
+      <workItem from="1634370737641" duration="5526000" />
     </task>
     <servers />
   </component>

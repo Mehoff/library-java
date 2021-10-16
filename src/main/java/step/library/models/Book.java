@@ -14,6 +14,14 @@ public class Book {
         this.cover = cover;
     }
 
+    public Book(String id, String author, String title, String description, String cover){
+        this.id = id;
+        this.author = author;
+        this.title = title;
+        this.description = description;
+        this.cover = cover;
+    }
+
     public void setId(String id) {
         this.id = id;
     }

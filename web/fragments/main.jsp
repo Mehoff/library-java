@@ -2,6 +2,7 @@
 <div>
     <ul>
         <li>
+            <a href="books">Список книг</a>
             <a href="books-servlet">Добавить книгу</a>
         </li>
     </ul>
