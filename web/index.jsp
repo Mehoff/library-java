@@ -6,18 +6,10 @@
     <link rel="stylesheet" href="css/styles.css"/>
   </head>
   <body>
-
   <jsp:include page="fragments/header.jsp"/>
   <main>
-
     <jsp:include page="fragments/main.jsp"/>
   </main>
-
   <jsp:include page="fragments/footer.jsp"/>
-
-
-  <%--  <% Db.createAuthors(); %>--%>
-<%--  <% Db.createBooks(); %>--%>
-
   </body>
 </html>

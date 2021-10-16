@@ -1,6 +1,7 @@
 package step.library;
 
 import org.json.JSONArray;
+import org.json.JSONObject;
 import step.library.models.Book;
 import step.library.utils.BookOrm;
 import step.library.utils.Db;
@@ -12,6 +13,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -72,6 +74,45 @@ public class BooksServlet extends HttpServlet {
                 }
             }
         }
+    }
+
+    @Override
+    protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
+        try{
+            StringBuilder buffer = new StringBuilder();
+            BufferedReader reader = req.getReader();
+            String line;
+            while ((line = reader.readLine()) != null) {
+                buffer.append(line);
+                buffer.append(System.lineSeparator());
+            }
+            JSONObject json = new JSONObject(buffer.toString());
+            String id = json.getString("id");
+
+            if(id == null) {
+                resp.sendError(403, "Id is null");
+                return;
+            }
+
+            if(!Db.getBookOrm().deleteById(id)){
+                resp.sendError(403, "Failed to delete book");
+                return;
+            }
+
+            resp.setStatus(200);
+            resp.setContentType("application/json");
+
+            JSONObject jsonObject = new JSONObject();
+            jsonObject.append("status", "OK");
+            resp.getWriter().print(
+                    jsonObject
+            );
+        } catch (Exception ex){
+            resp.sendError(403, "Failed to delete");
+            return;
+        }
+
     }
 
     @Override

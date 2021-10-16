@@ -25,3 +25,16 @@ footer {
     width: 100vm;
     padding: 10px;
 }
+
+.book{
+    width: 70%;
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    padding: 5px;
+    margin-bottom: 10vh;
+    border: solid crimson 2px;
+}
+
+.book img{
+    max-width: 300px;
+}

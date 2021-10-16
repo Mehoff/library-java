@@ -60,8 +60,6 @@ public class Db {
             config = null;
             return false;
         }
-        connection = null;
-        config = null;
         return false;
     }
 

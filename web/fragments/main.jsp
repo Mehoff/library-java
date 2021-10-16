@@ -3,6 +3,8 @@
     <ul>
         <li>
             <a href="books">Список книг</a>
+        </li>
+        <li>
             <a href="books-servlet">Добавить книгу</a>
         </li>
     </ul>

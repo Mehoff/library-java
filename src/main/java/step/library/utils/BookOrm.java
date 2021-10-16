@@ -103,7 +103,7 @@ public class BookOrm {
                     "id       RAW(16) DEFAULT SYS_GUID() PRIMARY KEY," +
                     "author   NVARCHAR2(128) NOT NULL," +
                     "title    NVARCHAR2(128) NOT NULL," +
-                    "description    NVARCHAR2(128) NULL," +
+                    "description    NVARCHAR2(512) NULL," +
                     "cover    NVARCHAR2(128) NULL)" ;
         } else {
             return false ;
@@ -116,5 +116,22 @@ public class BookOrm {
                     "BookOrm.installTable: " + ex.getMessage() + "\n" + query ) ;
         }
         return false ;
+    }
+
+    public boolean deleteById(String id) {
+        if(connection == null) return false;
+
+        String query = "DELETE FROM BOOKS" + SUFFIX +
+                " WHERE id = ?";
+
+        try(PreparedStatement prep = connection.prepareStatement(query)) {
+            prep.setString(1, id);
+            prep.executeUpdate();
+            return true;
+        } catch (SQLException ex){
+            System.err.println(
+                    "pushToDb: " + ex.getMessage() + " " + query ) ;
+            return false;
+        }
     }
 }
