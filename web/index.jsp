@@ -10,6 +10,6 @@
   <main>
     <jsp:include page="fragments/main.jsp"/>
   </main>
-  <jsp:include page="fragments/footer.jsp"/>
+<%--  <jsp:include page="fragments/footer.jsp"/>--%>
   </body>
 </html>

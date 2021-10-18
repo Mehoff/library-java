@@ -6,6 +6,7 @@
 
 <% Book[] books = Db.getBookOrm().getList(); %>
 
+
 <html>
 <head>
     <link rel="stylesheet" href="css/styles.css"/>
@@ -47,7 +48,7 @@
         <% } %>
     </ul>
 </main>
-<jsp:include page="fragments/footer.jsp"/>
+<%--  <jsp:include page="fragments/footer.jsp"/>--%>
 </body>
 <script>
     for(const button of document.querySelectorAll(".book-edit")){

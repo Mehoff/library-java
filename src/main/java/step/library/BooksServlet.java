@@ -6,6 +6,7 @@ import step.library.models.Book;
 import step.library.utils.BookOrm;
 import step.library.utils.Db;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
@@ -20,7 +21,7 @@ import java.nio.file.StandardCopyOption;
 @MultipartConfig
 public class BooksServlet extends HttpServlet {
 
-    // added last \\
+    // added last '\\'
     final String devFolder = "E:\\Code\\Repositories\\LibraryWeb\\web\\uploads\\";
 
     @Override
@@ -97,18 +98,23 @@ public class BooksServlet extends HttpServlet {
                 buffer.append(System.lineSeparator());
             }
             JSONObject json = new JSONObject(buffer.toString());
-
             if(!Db.getBookOrm().edit(json)){
-
                 resp.setStatus(403);
-                resp.getWriter().println("Failed to edit");
+                System.out.println("!Db.getBookOrm().edit failed");
+                resp.getWriter().print(" \"{\\\"status\\\":1}\" ");
                 return;
             }
 
-            resp.setStatus(200);
-            resp.sendRedirect("index.jsp");
+            RequestDispatcher dispatcher = getServletContext()
+                    .getRequestDispatcher("/index.jsp");
+            dispatcher.forward(req, resp);
+
+            //resp.setStatus(200);
+            //resp.getWriter().print(" \"{\\\"status\\\":1}\" ");
+            //resp.sendRedirect("books.jsp");
 
         } catch (Exception ex){
+            System.err.println("BooksServlet:doPut exception\n" + ex.getMessage());
             resp.sendError(403, "Failed to delete");
             return;
         }

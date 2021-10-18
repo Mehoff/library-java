@@ -61,6 +61,7 @@
 
     document.querySelector('#editButton').addEventListener('click', e => {
         const payload = {
+            id: localStorage.getItem("editId"),
             author: author.value.trim(),
             title: title.value.trim(),
             description: description.value.trim()
@@ -79,7 +80,7 @@
         } else {
             fetch("./books-servlet", {
                 method: "PUT",
-                body: payload
+                body: JSON.stringify(payload)
             }).then(res => res.json()).then(console.log)
         }
     })

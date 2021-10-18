@@ -5,6 +5,7 @@ import step.library.models.Book;
 
 import java.sql.*;
 import java.util.Iterator;
+import java.util.Locale;
 
 public class BookOrm {
 
@@ -39,7 +40,7 @@ public class BookOrm {
     }
 
     public Book getBookById(String id){
-        String query = "SELECT * FROM BOOKS" + SUFFIX + " WHERE id = '" + id + "'";
+        String query = "SELECT B.ID, B.AUTHOR, B.TITLE, B.DESCRIPTION, B.COVER FROM BOOKS" + SUFFIX + " B WHERE id = '" + id + "'";
 
         try(Statement statement = connection.createStatement()){
             ResultSet set = statement.executeQuery(query);
@@ -129,7 +130,7 @@ public class BookOrm {
                     "author   NVARCHAR2(128) NOT NULL," +
                     "title    NVARCHAR2(128) NOT NULL," +
                     "description    NVARCHAR2(512) NULL," +
-                    "cover    NVARCHAR2(128) NULL)" ;
+                    "cover    NVARCHAR2(128) NULL)";
         } else {
             return false ;
         }
@@ -146,8 +147,7 @@ public class BookOrm {
     public boolean deleteById(String id) {
         if(connection == null) return false;
 
-        String query = "DELETE FROM BOOKS" + SUFFIX +
-                " WHERE id = ?";
+        String query = "DELETE FROM BOOKS" + SUFFIX + " WHERE id = ?";
 
         try(PreparedStatement prep = connection.prepareStatement(query)) {
             prep.setString(1, id);
@@ -161,59 +161,39 @@ public class BookOrm {
     }
 
     public boolean edit(JSONObject json){
-        System.out.println("edit");
         if(connection == null) return false;
 
-        String query = "UPDATE FROM BOOKS" + SUFFIX +
-                "SET ";
-
+        String query = "UPDATE BOOKS" + SUFFIX +
+                " SET ";
 
         Iterator<String> keys = json.keys();
 
         boolean firstIteration = true;
-
         while(keys.hasNext()){
+
+            String key = keys.next();
+            if(key.equalsIgnoreCase("id")) continue;
+            String value = json.get(key).toString();
 
             if(!firstIteration){
                 query += ", ";
-                firstIteration = !firstIteration;
             }
+            firstIteration = false;
 
-            String key = keys.next();
-
-            if(json.get(key) instanceof JSONObject){
-                String value = ((JSONObject) json.get(key)).toString();
-                query += key + "=" + value;
-            }
+            query += key + " = '" + value + "'";
         }
 
-        query += " WHERE id = " + json.getString("id");
-
-        // First of all - check how it works before using db for this
-
-        System.out.println("BookOrm:edit(JSONObject)");
+        query += " WHERE id = '" + json.getString("id") + "'";
         System.out.println(query);
-        return false;
 
-//        try(Statement statement = connection.createStatement()){
-//            statement.executeUpdate(query);
-//            return true;
-//        } catch (SQLException ex){
-//            System.err.println(
-//                    "BookOrm:edit: " + ex.getMessage() + " " + query ) ;
-//            return false;
-//        }
-
-
-
-//        try(PreparedStatement prep = connection.prepareStatement(query)) {
-//            prep.setString(1, id);
-//            prep.executeUpdate();
-//            return true;
-//        } catch (SQLException ex){
-//            System.err.println(
-//                    "pushToDb: " + ex.getMessage() + " " + query ) ;
-//            return false;
-//        }
+        try(Statement statement = connection.createStatement()){
+            int res = statement.executeUpdate(query);
+            System.out.println(res + " row(s) affected");
+            return true;
+        } catch (SQLException ex){
+            System.err.println(
+                    "BookOrm:edit: " + ex.getMessage() + " " + query ) ;
+            return false;
+        }
     }
 }

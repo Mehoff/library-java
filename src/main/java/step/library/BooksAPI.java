@@ -47,7 +47,7 @@ public class BooksAPI extends HttpServlet {
             jsonObject.put("cover", book.getCover());
 
             resp.getWriter().print(jsonObject.toString());
-            resp.flushBuffer();
+            //resp.flushBuffer();
 
         } catch (Exception ex){
             resp.sendError(403, "Failed to delete");
